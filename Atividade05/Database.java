@@ -26,4 +26,27 @@ public class Database {
 		}
 		return caracteres.get(i);
 	}
+
+	public static Conta getConta(String[] md5) {
+		String str = "";
+
+		for (int i = 0; i < md5.length; i++) {
+			str += (getLetra(md5[i]).getCaractere());
+		}
+
+		int index = 0;
+		for (int i = 0; i < str.length(); i++) {
+			for (char ch = '0'; ch <= '9'; ch++) {
+				if (str.substring(i, i + 1).equals(String.valueOf(ch))) {
+					index = i;
+					break;
+				}
+
+			}
+		}
+		String nome = str.substring(0, index - 1);
+		String saldo = str.substring(index - 1, str.length());
+		Conta c = new Conta(nome, saldo);
+		return c;
+	}
 }

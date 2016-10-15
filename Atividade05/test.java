@@ -36,6 +36,16 @@ public class test {
 		}
 	}
 
+	public static void test5() {
+		Conta c = new Conta("124", "333", "1234", "10", "john doe");
+		ServerDatabase.insereConta(c);
+		String chave = SecurityProvider.md5ToServer(c);
+		Conta conta = ServerDatabase.getConta(chave);
+		String chars[];
+		chars = SecurityProvider.md5ToClient(conta);
+		System.out.println(Database.getConta(chars));
+	}
+
 	public static void test6() {
 		Letra l = new Letra("a");
 		String md5 = l.getMd5Code();
@@ -45,7 +55,7 @@ public class test {
 	}
 
 	public static void main(String[] args) {
-		test6();
+		test5();
 	}
 
 }

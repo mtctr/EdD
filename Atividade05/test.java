@@ -36,8 +36,16 @@ public class test {
 		}
 	}
 
+	public static void test6() {
+		Letra l = new Letra("a");
+		String md5 = l.getMd5Code();
+		System.out.println(md5);
+		Letra ll = Database.getLetra(md5);
+		System.out.println(ll.getCaractere());
+	}
+
 	public static void main(String[] args) {
-		test4();
+		test6();
 	}
 
 }

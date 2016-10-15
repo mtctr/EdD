@@ -31,7 +31,7 @@ public class SecurityProvider {
 	public static String md5ToServer(Conta conta){
 		String cat = conta.getAgencia() + conta.getNumero() + conta.getSenha() + SecurityProvider.salt;
 		
-		return cat;
+		return SecurityProvider.md5(cat);
 	}
 
 

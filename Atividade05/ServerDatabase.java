@@ -2,7 +2,7 @@
 import java.util.*;
 import java.math.*;
 
-public class ServerDatabase extends Database {
+public class ServerDatabase {
 	public static final ArrayList<ArrayList<Conta>> contas;
 	public static final int N = 100;
 
@@ -26,13 +26,12 @@ public class ServerDatabase extends Database {
 		contas.get(index).add(conta);
 	}
 
-//	public static Conta getConta(String md5) {
-//		int index = hashCode(md5);
-//		int i = 0;
-//		while(contas.get(index).get(i).getMd5() != md5){
-//			i++;
-//		}
-//		Conta c = contas.get(index).get(i);
-//		return c;
-//	}
+	public static Conta getConta(String md5) {
+
+		int index = hashCode(md5);
+		Conta c = contas.get(index).get(0);
+		return c;
+
+	}
+
 }

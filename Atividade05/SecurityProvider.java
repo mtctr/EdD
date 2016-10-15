@@ -1,5 +1,4 @@
 
-
 import java.math.*;
 import java.security.*;
 import java.util.logging.Level;
@@ -27,12 +26,20 @@ public class SecurityProvider {
 		}
 		return hashtext;
 	}
-	
-	public static String md5ToServer(Conta conta){
+
+	public static String md5ToServer(Conta conta) {
 		String cat = conta.getAgencia() + conta.getNumero() + conta.getSenha() + SecurityProvider.salt;
-		
+
 		return SecurityProvider.md5(cat);
 	}
 
+	public static String[] md5ToClient(Conta conta) {
+		String toCrypt = conta.getNomeCliente() + " " + conta.getSaldo();
+		String[] str = new String[toCrypt.length()];
+		for (int i = 0; i < str.length; i++) {
+			str[i] = md5(toCrypt.substring(i, i + 1));
+		}
+		return str;
+	}
 
 }

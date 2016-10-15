@@ -24,8 +24,20 @@ public class test {
 		System.out.println(conta);
 	}
 
+	public static void test4() {
+		Conta c = new Conta("124", "333", "1234", "10", "john doe");
+		ServerDatabase.insereConta(c);
+		String chave = SecurityProvider.md5ToServer(c);
+		Conta conta = ServerDatabase.getConta(chave);
+		String chars[];
+		chars = SecurityProvider.md5ToClient(conta);
+		for (int i = 0; i < chars.length; i++) {
+			System.out.println(chars[i]);
+		}
+	}
+
 	public static void main(String[] args) {
-		test3();
+		test4();
 	}
 
 }

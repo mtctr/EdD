@@ -27,11 +27,9 @@ public class ServerDatabase {
 	}
 
 	public static Conta getConta(String md5) {
-
 		int index = hashCode(md5);
 		Conta c = contas.get(index).get(0);
 		return c;
-
 	}
 
 }

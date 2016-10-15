@@ -6,7 +6,7 @@ public class Letra {
 
 	public Letra(String caractere) {
 		this.caractere = caractere;
-		SecurityProvider.md5(caractere);
+		this.md5Code = SecurityProvider.md5(caractere);
 	}
 
 	public String getCaractere() {

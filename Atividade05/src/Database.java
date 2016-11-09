@@ -26,14 +26,16 @@ public class Database {
 		}
 		return caracteres.get(i);
 	}
-
+	
 	public static Conta getConta(String[] md5) {
 		String str = "";
 
 		for (int i = 0; i < md5.length; i++) {
 			str += (getLetra(md5[i]).getCaractere());
 		}
-
+		//compara cada caractere com um numero
+		//quando chegar no saldo a comparacao sera positiva
+		//e apos isso ocorre a divisao da string
 		int index = 0;
 		for (int i = 0; i < str.length(); i++) {
 			for (char ch = '0'; ch <= '9'; ch++) {

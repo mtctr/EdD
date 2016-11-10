@@ -17,12 +17,30 @@ public class FenwickTree {
 		this.value = left.value + right.value;
 	}
 	
+	//passo 3
 	public static FenwickTree allZeros(int n){
 		if (n==0) return null;
 		if (n==1) return new FenwickTree(0);
 		int m = n/2;
 		return new FenwickTree(n-m, allZeros(n-m), allZeros(m));
 		}
+	
+	//passo 4
+	public int size(){
+		int size = 1;
+		if(this.left == null && this.right == null){
+			return size++;
+		}
+		else if(this.left != null && this.right !=null){
+			return this.left.size() + this.right.size();
+		}
+		else if(this.left != null && this.right == null){
+			return this.left.size();
+		}
+		else{
+			return this.right.size();
+		}
+	}
 
 	public String toString() {
 		String str = String.format("[%s, %s", this.value, this.leftSize);

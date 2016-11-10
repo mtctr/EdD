@@ -16,6 +16,13 @@ public class FenwickTree {
 		this.right = right;
 		this.value = left.value + right.value;
 	}
+	
+	public static FenwickTree allZeros(int n){
+		if (n==0) return null;
+		if (n==1) return new FenwickTree(0);
+		int m = n/2;
+		return new FenwickTree(n-m, allZeros(n-m), allZeros(m));
+		}
 
 	public String toString() {
 		String str = String.format("[%s, %s", this.value, this.leftSize);

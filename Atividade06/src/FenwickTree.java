@@ -29,19 +29,43 @@ public class FenwickTree {
 	public int size(){
 		int size = 1;
 		if(this.left == null && this.right == null){
-			return size++;
+			return size;
 		}
-		else if(this.left != null && this.right !=null){
-			return this.left.size() + this.right.size();
-		}
-		else if(this.left != null && this.right == null){
-			return this.left.size();
-		}
-		else{
-			return this.right.size();
+		else {
+			return this.leftSize + this.right.size();
 		}
 	}
-
+	
+	public void increment(int i, int delta){
+		if(this.left == null){
+			this.value += delta;
+		}else{
+			this.value += delta;
+			if(i < this.leftSize){
+				this.left.increment(i, delta);
+			}else{
+				this.right.increment(i - this.leftSize, delta);
+			}
+		}
+	}
+	
+//	public int prefixSum(int upTo){
+//		int soma = 0;
+//		
+//		if(this.left == null){
+//			soma += value;
+//		}else{
+//			if(upTo < this.leftSize){
+//				soma += this.left.prefixSum(this.leftSize - upTo);
+//			}else{
+//				soma += this.left.prefixSum(this.leftSize - upTo);
+//				soma += this.right.prefixSum(this.leftSize - upTo);
+//			}
+//		}
+//		
+//		return soma;
+//	}
+	
 	public String toString() {
 		String str = String.format("[%s, %s", this.value, this.leftSize);
 		if(this.left == null && this.right == null){
@@ -60,4 +84,6 @@ public class FenwickTree {
 		}
 		return str;
 	}
+	
+	
 }

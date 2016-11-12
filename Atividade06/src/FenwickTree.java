@@ -72,6 +72,11 @@ public class FenwickTree {
 				
 	}
 	
+	//passo 7	
+	public int between(int lo, int hi){
+		return prefixSum(hi)-prefixSum(lo);
+	}
+	
 	public String toString() {
 		String str = String.format("[%s, %s", this.value, this.leftSize);
 		if(this.left == null && this.right == null){

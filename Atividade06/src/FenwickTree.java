@@ -36,35 +36,41 @@ public class FenwickTree {
 		}
 	}
 	
+	//passo5
 	public void increment(int i, int delta){
 		if(this.left == null){
 			this.value += delta;
-		}else{
+		}
+		else{
 			this.value += delta;
 			if(i < this.leftSize){
 				this.left.increment(i, delta);
-			}else{
+			}
+			else{
 				this.right.increment(i - this.leftSize, delta);
 			}
 		}
 	}
 	
-//	public int prefixSum(int upTo){
-//		int soma = 0;
-//		
-//		if(this.left == null){
-//			soma += value;
-//		}else{
-//			if(upTo < this.leftSize){
-//				soma += this.left.prefixSum(this.leftSize - upTo);
-//			}else{
-//				soma += this.left.prefixSum(this.leftSize - upTo);
-//				soma += this.right.prefixSum(this.leftSize - upTo);
-//			}
-//		}
-//		
-//		return soma;
-//	}
+	//passo6
+	public int prefixSum(int upTo){
+		//int soma = 0;
+		if(upTo == 0){
+			return 0;
+		}
+		else if(this.left == null){
+			return value;
+		}
+		else{
+			if(upTo <= this.leftSize){
+				return this.left.prefixSum(this.leftSize);
+			}
+			else{
+				return this.left.prefixSum(this.leftSize) + this.right.prefixSum(upTo - this.leftSize);
+			}
+		}
+		//return soma;		
+	}
 	
 	public String toString() {
 		String str = String.format("[%s, %s", this.value, this.leftSize);

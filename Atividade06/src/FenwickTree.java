@@ -54,7 +54,7 @@ public class FenwickTree {
 	
 	//passo6
 	public int prefixSum(int upTo){
-		//int soma = 0;
+		
 		if(upTo == 0){
 			return 0;
 		}
@@ -63,13 +63,13 @@ public class FenwickTree {
 		}
 		else{
 			if(upTo <= this.leftSize){
-				return this.left.prefixSum(this.leftSize);
+				return this.left.prefixSum(upTo);
 			}
 			else{
 				return this.left.prefixSum(this.leftSize) + this.right.prefixSum(upTo - this.leftSize);
 			}
 		}
-		//return soma;		
+				
 	}
 	
 	public String toString() {

@@ -54,7 +54,6 @@ public class FenwickTree {
 	
 	//passo6
 	public int prefixSum(int upTo){
-		
 		if(upTo == 0){
 			return 0;
 		}
@@ -68,8 +67,7 @@ public class FenwickTree {
 			else{
 				return this.left.prefixSum(this.leftSize) + this.right.prefixSum(upTo - this.leftSize);
 			}
-		}
-				
+		}				
 	}
 	
 	//passo 7	
@@ -77,24 +75,17 @@ public class FenwickTree {
 		return prefixSum(hi)-prefixSum(lo);
 	}
 	
+	//passo 2
 	public String toString() {
 		String str = String.format("[%s, %s", this.value, this.leftSize);
-		if(this.left == null && this.right == null){
+		if(this.left == null){
 			str += "]";
 		}
-		else if(this.left != null && this.right !=null){
+		else {
 			str += String.format(" %s, %s]", this.left.toString(), this.right.toString());
 		}
-		else if(this.left == null && this.right!= null ){
-			str += String.format("%s]", this.right.toString()); 
-			
-		}
-		else if(this.left != null && this.right == null ){
-			str += String.format("%s]", this.left.toString()); 
-			
-		}
+		
 		return str;
 	}
-	
-	
+		
 }

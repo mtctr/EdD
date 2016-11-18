@@ -65,7 +65,7 @@ public class FenwickTree {
 				return this.left.prefixSum(upTo);
 			}
 			else{
-				return this.left.prefixSum(this.leftSize) + this.right.prefixSum(upTo - this.leftSize);
+				return this.left.value + this.right.prefixSum(upTo - this.leftSize);
 			}
 		}				
 	}

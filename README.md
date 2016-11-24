@@ -6,3 +6,5 @@ Atividade 04: Implementação de filas utilizando pilhas
 Atividade 05: Aplicação de tabelas hash
 
 Atividade 06: Fenwick Tree
+
+Atividade 07: BSTs

@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class BST {
 
 	int value;
@@ -16,15 +18,18 @@ public class BST {
 	}
 	
 	static BST add(BST a, int x){
-		if(a==null) return new BST(x);
-		if(a.value>x) a.left=add(a.left,x);
-		if(a.value<x) a.right=add(a.right,x);
+		if(a==null){
+			return new BST(x);
+			}
+		if(a.value>x){
+			a.left=add(a.left,x);
+		}
+		if(a.value<x){
+			a.right=add(a.right,x);
+		}
 		return a;
 	}
-	
-	static BST merge(BST a,BST b){
-		return new BST (a, getMin(b), removeMin(b));		
-	}
+		
 	
 	static int getMin(BST a) {
 		if (a.left == null)
@@ -37,4 +42,24 @@ public class BST {
 			return a.right;
 		return new BST(removeMin(a.left), a.value, a.right);
 	}
+	
+	//passo 1.a
+	static BST merge(BST a,BST b){
+		return new BST (a, getMin(b), removeMin(b));		
+	}
+	
+	//passo 1.b
+	private static void	toList(LinkedList<Integer> l, BST s){
+		if(s != null){
+			l.addLast(getMin(s));
+			toList(l,removeMin(s));
+		}
+		
+	}
+	
+	static LinkedList<Integer> toList(BST s){
+		LinkedList<Integer> l = new LinkedList<Integer>();
+		toList(l,s);
+		return l;
+	} 
 }

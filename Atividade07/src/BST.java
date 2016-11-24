@@ -22,6 +22,10 @@ public class BST {
 		return a;
 	}
 	
+	static BST merge(BST a,BST b){
+		return new BST (a, getMin(b), removeMin(b));		
+	}
+	
 	static int getMin(BST a) {
 		if (a.left == null)
 			return a.value;

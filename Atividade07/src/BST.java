@@ -57,6 +57,16 @@ public class BST {
 		
 	}
 	
+	//passo 1.c
+	static Vector<Pair<BST>>allSubsets(BST a){
+		Vector<Pair<BST>> v = new Vector<Pair<BST>>();
+		if(a==null){
+			v.add(new Pair<BST>(null,null));
+		}
+		
+		return v;
+ 	}
+	
 	static LinkedList<Integer> toList(BST s){
 		LinkedList<Integer> l = new LinkedList<Integer>();
 		toList(l,s);

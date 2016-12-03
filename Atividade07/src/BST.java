@@ -45,7 +45,18 @@ public class BST {
 	
 	//passo 1.a
 	static BST merge(BST a,BST b){
-		return new BST (a, getMin(b), removeMin(b));		
+		if(a != null && b != null){
+			return new BST (a, getMin(b), removeMin(b));
+		}
+		else if (a != null && b == null){
+			return a;
+		}
+		else if (b != null && a == null){
+			return b;
+		}
+		else{
+			return null;
+		}
 	}
 	
 	//passo 1.b
@@ -63,10 +74,21 @@ public class BST {
 		if(a==null){
 			v.add(new Pair<BST>(null,null));
 		}
+		else{
+			for(Pair<BST> l: allSubsets(a.left)){
+				for(Pair<BST> r: allSubsets(a.right)){
+					BST sl = new BST(l.first, a.value, r.first);
+					BST slbar = merge(l.second, r.second);
+					v.add(new Pair<BST>(sl, slbar));
+					v.add(new Pair<BST>(slbar, sl));
+				}
+			}
+		}
 		
 		return v;
  	}
 	
+	//passo 1.b
 	static LinkedList<Integer> toList(BST s){
 		LinkedList<Integer> l = new LinkedList<Integer>();
 		toList(l,s);

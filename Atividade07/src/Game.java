@@ -1,4 +1,4 @@
-import java.util.Vector;
+import java.util.*;
 
 public class Game {
 
@@ -6,21 +6,20 @@ public class Game {
 
 	public Game(int[] numbers) {
 		this.seeds = new Set();
-		for (int i = 0; i<numbers.length; i++) {
+		for (int i = 0; i < numbers.length; i++) {
 			seeds.add(numbers[i]);
 		}
 	}
-	
-	private Set getResult(Set s){
-		if(s.isSingleton()){
+
+	private Set getResult(Set s) {
+		if (s.isSingleton()) {
 			return s;
-		}
-		else{
+		} else {
 			Set results = new Set();
+			LinkedList<Integer> l = s.toList();			
 			
-				
-			}
-		}			
-	}	
-	
+
+		}
+	}
+
 }

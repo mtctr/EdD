@@ -61,9 +61,10 @@ public class BST {
 	
 	//passo 1.b
 	private static void	toList(LinkedList<Integer> l, BST s){
-		if(s != null){
-			l.addLast(getMin(s));
-			toList(l,removeMin(s));
+		BST x = s;
+		if(x != null){
+			l.addLast(getMin(x));
+			toList(l,removeMin(x));
 		}
 		
 	}

@@ -8,3 +8,5 @@ Atividade 05: Aplicação de tabelas hash
 Atividade 06: Fenwick Tree
 
 Atividade 07: BSTs
+
+Atividade 08: Heurísticas

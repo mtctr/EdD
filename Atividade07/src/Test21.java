@@ -16,7 +16,7 @@ public class Test21 {
 		int[] tab=new int[]{4,1,5};
 		for(int i=0; i<=tab.length; i++){
 			Game test=new Game(Arrays.copyOf(tab, i));
-			System.out.println("Seeds="+stringtab(tab,i)+" Results= "+test.getResult());
+			System.out.println("Seeds="+stringtab(tab,i)+" Results= "+test.getResults());
 		}
 	}
 
